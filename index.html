@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A&amp;R | Crypto, Forex and Investing</title>
+<meta name="description" content="A&amp;R helps you trade crypto, trade forex and build long-term investments with clear guidance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #0f9d6b;
+    --emerald-deep: #064e3b;
+    --black: #000000;
+    --ink: #0a1511;
+    --white: #ffffff;
+    --mist: #eef6f2;
+    --muted: #5b6b64;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', Arial, sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; }
+  h1, h2, h3, .logo { font-family: 'Fraunces', Georgia, serif; line-height: 1.1; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--emerald); outline-offset: 3px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: var(--black); color: var(--white); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-size: 1.6rem; font-weight: 800; }
+  .logo span { color: var(--emerald); }
+  nav { display: flex; gap: 24px; font-size: .95rem; }
+  nav a:hover { color: var(--emerald); }
+  .btn { display: inline-block; padding: 12px 26px; background: var(--emerald); color: var(--white); font-weight: 600; border: 0; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+  .btn:hover { background: #0b8459; }
+  .btn.ghost { background: transparent; border: 2px solid var(--white); }
+  .btn.ghost:hover { background: var(--white); color: var(--black); }
+
+  /* Hero */
+  .hero { background: var(--black); color: var(--white); padding: 96px 0 88px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; }
+  .hero h1 em { font-style: normal; color: var(--emerald); }
+  .hero p { margin: 22px 0 32px; color: #c9d6d0; max-width: 46ch; font-size: 1.1rem; }
+  .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .ticker { border: 1px solid #1f3a2f; border-radius: 10px; background: #07120d; padding: 8px 20px; }
+  .ticker div { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #16291f; }
+  .ticker div:last-child { border-bottom: 0; }
+  .ticker b { font-weight: 600; }
+  .up { color: var(--emerald); }
+  .down { color: #ff6b6b; }
+  .ticker small { display: block; color: #7f958b; padding: 8px 0 6px; font-size: .75rem; }
+
+  /* Sections */
+  section { padding: 88px 0; }
+  section h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 14px; }
+  .lead { color: var(--muted); max-width: 60ch; margin-bottom: 48px; }
+
+  /* Services */
+  #services { background: var(--white); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { border: 2px solid var(--black); border-radius: 12px; padding: 32px 28px; background: var(--white); }
+  .card:nth-child(2) { background: var(--emerald-deep); color: var(--white); border-color: var(--emerald-deep); }
+  .card:nth-child(3) { background: var(--black); color: var(--white); }
+  .card h3 { font-size: 1.6rem; margin-bottom: 12px; }
+  .card p { font-size: .98rem; margin-bottom: 18px; }
+  .card ul { list-style: none; font-size: .95rem; }
+  .card li { padding: 7px 0 7px 26px; position: relative; }
+  .card li::before { content: ""; position: absolute; left: 0; top: 14px; width: 12px; height: 7px; border-left: 3px solid var(--emerald); border-bottom: 3px solid var(--emerald); transform: rotate(-45deg); }
+
+  /* Why us */
+  #why { background: var(--mist); }
+  .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .why h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--emerald-deep); }
+  .why p { font-size: .95rem; color: var(--muted); }
+
+  /* About */
+  #about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  #about p { margin-bottom: 16px; color: var(--muted); }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stat { background: var(--black); color: var(--white); padding: 28px; border-radius: 12px; }
+  .stat b { display: block; font-family: 'Fraunces', Georgia, serif; font-size: 2.4rem; color: var(--emerald); }
+
+  /* Contact */
+  #contact { background: var(--black); color: var(--white); }
+  #contact .lead { color: #c9d6d0; }
+  form { display: grid; gap: 16px; max-width: 560px; }
+  label { font-size: .9rem; font-weight: 500; }
+  input, textarea, select { width: 100%; padding: 13px 14px; margin-top: 6px; border-radius: 6px; border: 1px solid #2a4a3c; background: #07120d; color: var(--white); font: inherit; }
+  textarea { min-height: 120px; resize: vertical; }
+
+  .risk { background: var(--white); color: var(--muted); font-size: .8rem; padding: 28px 0; border-top: 4px solid var(--emerald); }
+  footer { background: var(--black); color: #8fa399; text-align: center; padding: 24px; font-size: .85rem; }
+
+  @media (max-width: 860px) {
+    .hero .wrap, #about .wrap { grid-template-columns: 1fr; }
+    .cards, .why { grid-template-columns: 1fr; }
+    nav { display: none; }
+    section { padding: 64px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+     <header>
+  <div class="wrap">
+    <a href="#top" class="logo">A<span>&amp;</span>R</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#why">Why A&amp;R</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn">Get started</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Trade smarter. Invest <em>with confidence.</em></h1>
+        <p>A&amp;R helps you trade crypto, trade forex and build long-term investments, with clear guidance at every step.</p>
+        <div class="actions">
+          <a href="#contact" class="btn">Open an account</a>
+          <a href="#services" class="btn ghost">See our services</a>
+        </div>
+      </div>
+      <div class="ticker" aria-label="Sample market prices">
+        <div><b>BTC / USD</b><span class="up">+2.4%</span></div>
+        <div><b>ETH / USD</b><span class="up">+1.8%</span></div>
+        <div><b>EUR / USD</b><span class="down">-0.3%</span></div>
+        <div><b>GBP / USD</b><span class="up">+0.2%</span></div>
+        <small>Sample figures for illustration only.</small>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="lead">Three markets, one team. Pick the one that fits your goals, or combine them.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Crypto</h3>
+          <p>Buy, sell and hold digital assets with guidance on security and timing.</p>
+          <ul>
+            <li>Bitcoin, Ethereum and major altcoins</li>
+            <li>Wallet and security setup</li>
+            <li>Market analysis and alerts</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Forex</h3>
+          <p>Trade global currency pairs with strategies built around managing risk.</p>
+          <ul>
+            <li>Major, minor and exotic pairs</li>
+            <li>Trade signals and chart analysis</li>
+            <li>Risk management coaching</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Investing</h3>
+          <p>Grow your money over time with a portfolio matched to your goals.</p>
+          <ul>
+            <li>Diversified portfolio planning</li>
+            <li>Long-term wealth strategies</li>
+            <li>Regular performance reviews</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <h2>Why choose A&amp;R</h2>
+      <p class="lead">We keep things simple, honest and focused on your results.</p>
+      <div class="why">
+        <div><h3>Clear guidance</h3><p>Plain explanations, no confusing jargon.</p></div>
+        <div><h3>Risk first</h3><p>We plan for losses before we chase gains.</p></div>
+        <div><h3>Secure</h3><p>Your funds and data are protected by strong security practices.</p></div>
+        <div><h3>Real support</h3><p>Talk to a person when you have a question.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div>
+        <h2>About A&amp;R</h2>
+        <p>A&amp;R is a trading and investment company focused on crypto, forex and long-term investing. We believe everyone should be able to take part in the markets with confidence.</p>
+        <p>Our team combines market research with practical experience to help clients make informed decisions, whether they are placing their first trade or growing an established portfolio.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>3</b>Markets covered</div>
+        <div class="stat"><b>24/7</b>Crypto and forex access</div>
+        <div class="stat"><b>1:1</b>Personal guidance</div>
+        <div class="stat"><b>100%</b>Focus on your goals</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Start with A&amp;R</h2>
+      <p class="lead">Tell us what you want to achieve and we will get back to you.</p>
+     <form action="https://formspree.io/f/xqpewepl" method="POST">
+  <input type="hidden" name="_subject" value="New message from A&R website">
+  <label>Full name
+    <input type="text" name="name" required autocomplete="name">
+  </label>
+  <label>Email
+    <input type="email" name="email" required autocomplete="email">
+  </label>
+  <label>I am interested in
+    <select name="interest">
+      <option>Crypto</option>
+      <option>Forex</option>
+      <option>Investing</option>
+      <option>All of them</option>
+    </select>
+  </label>
+  <label>Message
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit" class="btn">Send message</button>
+</form>
+    </div>
+  </section>
+
+  <div class="risk">
+    <div class="wrap">
+      <strong>Risk warning:</strong> Trading crypto and forex, and investing, carry a high risk of loss. Only use money you can afford to lose. Past performance does not guarantee future results.
+    </div>
+  </div>
+</main>
+
+<footer>&copy; 2026 A&amp;R. All rights reserved.</footer>
+</body>
+</html>
